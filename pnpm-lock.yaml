@@ -26,9 +26,6 @@ importers:
       '@repo/global':
         specifier: workspace:*
         version: link:../../packages/global
-      '@repo/shared-server':
-        specifier: workspace:*
-        version: link:../../packages/shared-server
       express:
         specifier: ^4.21.2
         version: 4.21.2
@@ -39,6 +36,9 @@ importers:
         specifier: ^3.24.2
         version: 3.24.2
     devDependencies:
+      '@repo/shared-server':
+        specifier: workspace:*
+        version: link:../../packages/shared-server
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config

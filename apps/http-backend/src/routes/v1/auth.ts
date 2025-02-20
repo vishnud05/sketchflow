@@ -1,9 +1,8 @@
 import { prisma } from "@repo/database";
 import { SignInSchema, SignUpSchema } from "@repo/global/auth";
-import { JWT_SECRET } from "@repo/shared-server/config";
 import { Router } from "express";
+import { JWT_SECRET } from "@repo/shared-server/config";
 import jwt from "jsonwebtoken";
-import { z } from "zod";
 
 const router = Router();
 
@@ -11,7 +10,11 @@ router.post("/signup", async (req, res) => {
   try {
     const { name, password, email } = req.body;
 
-    SignUpSchema.safeParse({ name, password, email });
+    const parsedData = SignUpSchema.safeParse({ name, password, email });
+
+    if (!parsedData.success) {
+      throw new Error(parsedData.error.message);
+    }
 
     const newUser = await prisma.user.create({
       data: {
@@ -31,6 +34,8 @@ router.post("/signup", async (req, res) => {
       },
     });
   } catch (error: any) {
+    console.log(error);
+
     res.status(500).json({
       status: "error",
       message: error.message,
@@ -42,7 +47,11 @@ router.post("/signin", async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    SignInSchema.safeParse({ email, password });
+    const parsedData = SignInSchema.safeParse({ email, password });
+
+    if (!parsedData.success) {
+      throw new Error(parsedData.error.message);
+    }
 
     const user = await prisma.user.findUnique({
       where: { email },

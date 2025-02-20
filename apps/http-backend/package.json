@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@repo/database": "workspace:*",
-    "@repo/shared-server": "workspace:*",
     "@repo/global": "workspace:*",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
@@ -22,6 +21,7 @@
   "license": "ISC",
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
+    "@repo/shared-server": "workspace:*",
     "@types/express": "^5.0.0",
     "@types/express-serve-static-core": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.8",
