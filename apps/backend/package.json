@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "build": "tsc -b",
     "start": "node dist/index.js",
@@ -12,6 +11,7 @@
   "dependencies": {
     "@repo/database": "workspace:*",
     "@repo/global": "workspace:*",
+    "@repo/shared-server": "workspace:*",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "zod": "^3.24.2"
@@ -21,7 +21,6 @@
   "license": "ISC",
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@repo/shared-server": "workspace:*",
     "@types/express": "^5.0.0",
     "@types/express-serve-static-core": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.8",

@@ -10,12 +10,39 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #ffffff;
   }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #868686;
+  border-radius: 10px;
+  /* border: 2px solid #fff; */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #6c5ce7;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  .brand-gradient {
+    @apply text-white bg-gradient-to-r from-violet-500 to-purple-700 hover:from-violet-600 hover:to-purple-800 transition-all duration-300;
+  }
+  .brand-gradient-text {
+    @apply bg-gradient-to-r from-blue-400 to-blue-400 via-purple-600 text-transparent bg-clip-text;
+  }
 }
